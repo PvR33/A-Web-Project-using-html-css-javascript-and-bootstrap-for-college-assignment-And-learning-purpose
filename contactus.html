@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">SDJ International College</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="registration.html">Registration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contactus.html">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-10">
+                <h1>Contact Us</h1>
+                <p>If you have any questions or feedback, please feel free to contact us using the
+                    form below:
+                </p>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea class="form-control" id="message" name="message" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-10">
+                <h1>Our Location</h1>
+                <p><h5>We are located at:</h5></p>
+                <address>
+                    <strong>SDJ International College</strong><br>
+                    Near Indian Diamond Institute,<br>
+                    Someshwara Enclave, Vesu,<br>
+                    Surat, Pincode: 395007<br>
+                    <abbr title="Phone">Phone:</abbr> (123) 456-7890
+                </address>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const loginForm = document.getElementById("loginForm");
+            const email = document.getElementById("email");
+            const name = document.getElementById("name");
+            const message = document.getElementById("message");
+            const submitButton = document.querySelector('button[type="submit"]');
+
+            loginForm.addEventListener("submit", function (event) {
+                let isValid = true;
+                if (name.value.trim() === "") {
+                    isValid = false;
+                    alert("Name is required.");
+                }
+                else if (email.value.trim() === "") {
+                    isValid = false;
+                    alert("Email is required");
+                }
+                else if (message.value.trim() === "") {
+                    isValid = false;
+                    alert("Please Write Massage.");
+                }
+
+                var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                const emailformate = usernameInput.value.trim();
+                if (!mailformat.test(emailformate)) {
+                    isValid = false;
+                    alert("Write a valid mail.");
+                }
+                if (!submitButton.dataset.clicked) {
+                    isValid = false;
+                    alert("Please press the Login button to submit the form.");
+                }
+
+                if (!isValid) {
+                    event.preventDefault();
+                }
+            });
+
+            submitButton.addEventListener("click", function () {
+                submitButton.dataset.clicked = "true";
+            });
+        });
+    </script>
+
+</body>
+
+</html>
